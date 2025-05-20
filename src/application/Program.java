@@ -32,10 +32,17 @@ public class Program {
 		list = sellerDao.findAll();
 		for (Seller x : list) System.out.println(x);
 	
-		System.out.println("\n=== Test 4 FindAll === \n");
+		System.out.println("\n=== Test 4 FindInsert === \n"); 
 		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New ID = "+ newSeller.getId());
+	
+		System.out.println("\n=== Test 5 Update === \n"); 
+		seller = sellerDao.findById(1);
+		seller.setBaseSalary(4000.0);
+		sellerDao.update(seller);
+		System.out.println("Update concluded!");
+	
 	}
 
 }
